@@ -52,7 +52,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preperation of the Chicken 
         /// </summary>
-        public List<string> SpecialInstuctions
+        public List<string> SpecialInstructions
         {
             get
             {

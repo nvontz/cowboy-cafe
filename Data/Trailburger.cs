@@ -26,7 +26,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 528;
+                return 288;
             }
         }
 
@@ -69,6 +69,16 @@ namespace CowboyCafe.Data
             get { return cheese; }
             set { cheese = value; }
         }
+
+        private bool bun = true;
+        /// <summary>
+        /// If the burger has a bun
+        /// </summary>
+        public bool Bun
+        {
+            get { return bun; }
+            set { bun = value; }
+        }
         /// <summary>
         /// Special instructions for the preperation of the burger
         /// </summary>
@@ -82,6 +92,7 @@ namespace CowboyCafe.Data
                 if (!mustard) instructions.Add("hold mustard");
                 if (!pickle) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
+                if (!bun) instructions.Add("hold bun");
 
                 return instructions;
             }

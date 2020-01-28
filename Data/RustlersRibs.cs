@@ -29,6 +29,18 @@ namespace CowboyCafe.Data
                 return 894;
             }
         }
-        
+
+        /// <summary>
+        /// Special instructions for the preperation of the Ribs
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                return instructions;
+            }
+        }
     }
 }
