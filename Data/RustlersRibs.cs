@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CowboyCafe.Data
+{
+    /// <summary>
+    /// A class representing the Rustler's Ribs entree 
+    /// </summary>
+    public class RustlersRibs
+    {
+        /// <summary>
+        /// the price of the Ribs
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                return 7.50;
+            }
+        }
+        /// <summary>
+        /// the calories of the Ribs
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                return 894;
+            }
+        }
+        
+    }
+}
