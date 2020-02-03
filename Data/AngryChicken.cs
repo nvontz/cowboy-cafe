@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree 
     /// </summary>
-    public class AngryChicken
+    public class AngryChicken : Entree
     {
         /// <summary>
         /// The Price of the Chicken
