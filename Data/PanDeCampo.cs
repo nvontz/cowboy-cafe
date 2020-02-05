@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: PanDeCampo.cs
+ * Purpose: A Class representing the Pan De Campo Side
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

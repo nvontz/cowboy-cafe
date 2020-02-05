@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CornDodgers.cs
+ * Purpose: A Class to represent the CornDogers side
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: Entree.cs
+ * Purpose: An abstract base class for the entrees
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

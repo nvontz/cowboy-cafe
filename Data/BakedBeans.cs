@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: BakedBeans.cs
+ * Purpose: A class for the Baked Beans side
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

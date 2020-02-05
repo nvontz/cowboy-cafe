@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: PecosPulledPork.cs
+ * Purpose: A class to represent the Pecos Pulled Pork entree
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

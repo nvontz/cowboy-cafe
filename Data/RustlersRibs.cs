@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: RustlersRibs.cs
+ * Purpose: A class to represent the Rustlers Rib entree
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Author: amandajoelleyoung
+ * Edited By: Nathan Vontz
+ * Class: Side.cs
+ * Purpose: Am abstract base class represnting a side 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

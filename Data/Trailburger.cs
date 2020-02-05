@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: Trailburger.cs
+ * Purpose: A class to represent the Trailburger entree 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

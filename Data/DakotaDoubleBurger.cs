@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: DakotaDoubleBurger.cs
+ * Purpose: A class to represent the Dakota Double Burger entree
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

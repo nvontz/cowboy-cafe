@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: TexasTripleBurger.cs
+ * Purpose: A Class to represent the Texas Triple Burger Entree
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

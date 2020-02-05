@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: ChiliCheeseFries.cs
+ * Purpose: A class to represent the chili cheese fries side
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
