@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
 
         public virtual Size Size { get; set; }
 
-        public abstract bool Ice 
+        public bool Ice { get; set; } = true;
 
     }
 }
