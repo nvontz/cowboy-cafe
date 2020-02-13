@@ -1,11 +1,24 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: JerkedSoda.cs
+ * Purpse: A class to represent the Jerked Soda drink 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class to represent the Jerked Soda drink
+    /// </summary>
     public class JerkedSoda : Drink
     {
+        /// <summary>
+        /// The price of the soda
+        /// </summary>
         public override double Price
         {
             get
@@ -23,7 +36,9 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// the calories of the soda
+        /// </summary>
         public override uint Calories
         {
             get
@@ -41,9 +56,13 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Gets the flavor of the soda
+        /// </summary>
         public SodaFlavor Flavor { get; set; }
-
+        /// <summary>
+        /// Special Instructions for the shoes
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
