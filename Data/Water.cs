@@ -59,5 +59,15 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Size);
+            sb.Append(" Water");
+            return sb.ToString();
+            
+        }
     }
 }

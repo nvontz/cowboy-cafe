@@ -100,5 +100,15 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Size);
+            if (decaf) sb.Append(" decaf");
+            sb.Append(" Cowboy Coffee");
+            return sb.ToString();
+        }
     }
 }

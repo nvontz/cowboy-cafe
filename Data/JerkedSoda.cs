@@ -73,6 +73,18 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
-        } 
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Size);
+            sb.Append(" ");
+            sb.Append(Flavor);
+            sb.Append(" Jerked Soda");
+            return sb.ToString();
+
+        }
     }
 }
