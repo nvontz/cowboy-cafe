@@ -81,7 +81,27 @@ namespace CowboyCafe.Data
 
             sb.Append(Size);
             sb.Append(" ");
-            sb.Append(Flavor);
+            switch (Flavor)
+            {
+                case SodaFlavor.BirchBeer:
+                   sb.Append("Birch Beer");
+                    break;
+                case SodaFlavor.CreamSoda:
+                    sb.Append("Cream Soda");
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    sb.Append("Orange Soda");
+                    break;
+                case SodaFlavor.RootBeer:
+                    sb.Append("Root Beer");
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    sb.Append("Sarsparilla");
+                    break;
+                default:
+                    sb.Append(Flavor);
+                    break;      
+            }
             sb.Append(" Jerked Soda");
             return sb.ToString();
 

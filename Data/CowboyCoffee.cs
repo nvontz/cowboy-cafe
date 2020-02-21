@@ -106,7 +106,7 @@ namespace CowboyCafe.Data
             StringBuilder sb = new StringBuilder();
 
             sb.Append(Size);
-            if (decaf) sb.Append(" decaf");
+            if (decaf) sb.Append(" Decaf");
             sb.Append(" Cowboy Coffee");
             return sb.ToString();
         }
