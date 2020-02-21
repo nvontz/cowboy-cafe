@@ -10,7 +10,10 @@
         <Style TargetType="Button">
             <Setter Property="Height" Value="50px"/>
             <Setter Property="FontSize" Value="20"/>
-
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Height" Value="50px"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -45,6 +48,7 @@
             <Button Name="AddWaterButton">Water</Button>
         </StackPanel>
         <StackPanel Grid.Column="3">
+            <TextBlock TextAlignment="Center">Order</TextBlock>
             <ListView Name="OrderListView"></ListView>
         </StackPanel>
     </Grid>
