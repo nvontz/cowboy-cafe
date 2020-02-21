@@ -39,7 +39,7 @@ namespace PointOfSale
             AddJerkedSodaButton.Click += AddJerkedSodaButton_Click;
         }
 
-        void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
+        private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
         {
             OrderListView.Items.Add(new CowpokeChili());
         }
