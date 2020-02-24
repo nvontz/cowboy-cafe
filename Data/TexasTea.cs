@@ -94,7 +94,7 @@ namespace CowboyCafe.Data
             set { sweet = value; }
         }
         /// <summary>
-        /// Specail Instructions for the Tea
+        /// Special Instructions for the Tea
         /// </summary>
         public override List<string> SpecialInstructions
         {
@@ -108,7 +108,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// Gets the String for the Texas Tea
+        /// </summary>
+        /// <returns>(Size) Texas (Type) Tea</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

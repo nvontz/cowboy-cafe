@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: MainWindow.xaml.cs
+ * Purpose: The Main Window For the Resteraunt App
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -56,7 +56,10 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Retruns size of baked beans
+        /// </summary>
+        /// <returns>(Size) baked beans</returns> 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

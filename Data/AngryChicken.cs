@@ -72,7 +72,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// To String Method for the angry chicken
+        /// </summary>
+        /// <returns>Angry Chicken</returns> 
         public override string ToString()
         {
             return "Angry Chicken";

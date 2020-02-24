@@ -58,7 +58,10 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Gets the string of the Corn Dodgers
+        /// </summary>
+        /// <returns>(Size) Corn Dodgers</returns> 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

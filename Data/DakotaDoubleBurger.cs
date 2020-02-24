@@ -137,7 +137,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// To String Method for the Dakota Double Burger
+        /// </summary>
+        /// <returns>Dakota Double Burger</returns> 
         public override string ToString()
         {
             return "Dakota Double Burger";

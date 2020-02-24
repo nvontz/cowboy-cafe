@@ -57,7 +57,10 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Gets the String for the Pan de Campo
+        /// </summary>
+        /// <returns>(Size) Pand de Campo</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

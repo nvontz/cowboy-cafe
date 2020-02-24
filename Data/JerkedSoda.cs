@@ -74,7 +74,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// Gets the String for the Jerked Soda
+        /// </summary>
+        /// <returns>(Size) (Flavor) Jerked Soda</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

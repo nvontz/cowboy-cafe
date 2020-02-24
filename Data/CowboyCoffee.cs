@@ -100,7 +100,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// Gets the string of the Cowboy Coffee
+        /// </summary>
+        /// <returns>(Size)(if decaf) Cowboy Coffee</returns> 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

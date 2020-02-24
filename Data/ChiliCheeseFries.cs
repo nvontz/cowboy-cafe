@@ -57,7 +57,10 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        /// <summary>
+        /// To String for the chili cheese fries
+        /// </summary>
+        /// <returns>(Size) Chili Cheese Fries</returns> 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

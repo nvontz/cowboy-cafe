@@ -59,7 +59,10 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// The String for Water
+        /// </summary>
+        /// <returns>(Size) Water</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
