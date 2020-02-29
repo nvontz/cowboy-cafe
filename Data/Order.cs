@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         /// <summary>
         /// holds the last order number
@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// the current order number
         /// </summary>
-        public uint OrderNumber { get; } = lastOrderNumber++;
+        public uint OrderNumber { get { return (++lastOrderNumber)/2; } }
         /// <summary>
         /// A list of the items being ordered
         /// </summary>
@@ -35,12 +35,12 @@ namespace CowboyCafe.Data
         {
             get
             {
+                subtotal = 0;
+                foreach(IOrderItem item in Items)
+                {
+                    subtotal += item.Price;
+                }
                 return subtotal;
-            }
-            private set
-            {
-                subtotal = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));  
             }
         }
           
@@ -49,15 +49,15 @@ namespace CowboyCafe.Data
         public void Add(IOrderItem item)
         {
             items.Add(item);
-            Subtotal += item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
         public void Remove(IOrderItem item)
         {
             items.Remove(item);
-            Subtotal -= item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
 

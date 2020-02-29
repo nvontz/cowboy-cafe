@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
       
-        <TextBlock  Grid.Row="0" Text="{Binding Path= OrderNumber, StringFormat= OrderNumber {0}}" />
+        <TextBlock  Grid.Row="0" Text="{Binding Path= OrderNumber, StringFormat= {}Order {0}}" />
         
             <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
                 <ListBox.ItemTemplate>
