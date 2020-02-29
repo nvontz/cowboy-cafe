@@ -8,6 +8,6 @@
         Title="MainWindow" Height="600" Width="800">
     <DockPanel>
         <local:OrderControl DockPanel.Dock="Left"/>
-        <local:OrderSummaryControl DockPanel.Dock="Right"/>
+     
     </DockPanel>
 </Window>

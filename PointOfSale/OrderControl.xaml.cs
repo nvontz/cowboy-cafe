@@ -31,6 +31,9 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+
+            this.DataContext = new Order();
+
             CancelOrderButton.Click += CancelOrderButton_Click;
             CompleteOrderButton.Click += CompleteOrderButton_Click;
         }
@@ -38,11 +41,13 @@ namespace PointOfSale
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            
         }
 
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+          
         }
     }
 }

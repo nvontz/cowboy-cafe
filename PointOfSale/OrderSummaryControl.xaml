@@ -21,10 +21,10 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="1" TextAlignment="Left" Text="{Binding}"/>
-                            <TextBlock Grid.Column="2" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <TextBlock Grid.Column="0" TextAlignment="Left" Text="{Binding}"/>
+                            <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
