@@ -37,17 +37,34 @@ namespace PointOfSale
             CancelOrderButton.Click += CancelOrderButton_Click;
             CompleteOrderButton.Click += CompleteOrderButton_Click;
         }
-
+        /// <summary>
+        /// The Cancel Button for the Order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
             
         }
-
+        /// <summary>
+        /// the Complete Button for the Order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
           
+        }
+        /// <summary>
+        /// The Item Selection Button for the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemSelctionButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

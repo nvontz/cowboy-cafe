@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: Order.cs
+ * Purpose: The Order class for the menu
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -30,7 +36,9 @@ namespace CowboyCafe.Data
             }
         }
         private double subtotal = 0;
-
+        /// <summary>
+        /// Gets the subtotal of the selected items
+        /// </summary>
         public double Subtotal
         {
             get
@@ -43,16 +51,24 @@ namespace CowboyCafe.Data
                 return subtotal;
             }
         }
-          
+        /// <summary>
+        /// Checks if anything has been changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Adds the selected item to the order
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
-
+        /// <summary>
+        /// Removes the selected item from the order
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(IOrderItem item)
         {
             items.Remove(item);

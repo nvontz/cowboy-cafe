@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: OrderSummaryControl.xaml.cs
+ * Purpose: The Order Menu for the Restaurant 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderSummaryControl : UserControl
     {
+        /// <summary>
+        /// The Initailizer for the class
+        /// </summary>
         public OrderSummaryControl()
         {
             InitializeComponent();
