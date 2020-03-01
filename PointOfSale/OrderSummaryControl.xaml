@@ -6,6 +6,12 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
+    <UserControl.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -14,28 +20,29 @@
         </Grid.RowDefinitions>
       
         <TextBlock  Grid.Row="0" Text="{Binding Path= OrderNumber, StringFormat= {}Order {0}}" />
-        
-            <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-                <ListBox.ItemTemplate>
+       
+            <ListBox FontSize="16" Grid.Row="1" ItemsSource="{Binding Path=Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                <ListBox.ItemTemplate >
                     <DataTemplate>
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" TextAlignment="Left" Text="{Binding}"/>
-                            <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" TextAlignment="Left">Subtotal:</TextBlock>
-                <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}"/>
+                <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Subtotal, StringFormat=c}"/>
             </Grid>
         
         
