@@ -29,9 +29,14 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding}"/>
-                        <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
-                        </Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
+                        <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0"/>
+                    </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
