@@ -20,6 +20,7 @@ using CowboyCafe.Data;
 
 namespace PointOfSale
 {
+    
     /// <summary>
     /// Interaction logic for OrderControl.xaml
     /// </summary>
@@ -64,7 +65,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void ItemSelctionButton_Click(object sender, RoutedEventArgs e)
         {
+            SwapScreen(new MenuItemSelectionControl());
+        }
 
+        /// <summary>
+        /// Swaps Screen to the specific customization 
+        /// </summary>
+        /// <param name="element"></param>
+        public void SwapScreen(UIElement element)
+        {
+            Container.Child = element;
         }
     }
 }

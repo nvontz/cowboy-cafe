@@ -17,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
+using PointOfSale.CustomizeDrink;
+using PointOfSale.CustomizeEntree;
 
 namespace PointOfSale
 {
@@ -25,210 +28,114 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
-
+  
         public MenuItemSelectionControl()
         {
 
             {
                 InitializeComponent();
-                AddCowpokeChiliButton.Click += AddCowpokeChiliButton_Click;
-                AddWaterButton.Click += AddWaterButton_Click;
-                AddTexasTeaButton.Click += AddTexasTeaButton_Click;
-                AddCowboyCoffeeButton.Click += AddCowboyCoffeeButton_Click;
-                AddRustlersRibsButton.Click += AddRustlersRibsButton_Click;
-                AddPekosPulledPorkButton.Click += AddPekosPulledPorkButton_Click;
-                AddTrailBurgerButton.Click += AddTrailBurgerButton_Click;
-                AddDakotaDoubleBurgerButton.Click += AddDakotaDoubleBurgerButton_Click;
-                AddTexasTripleBurgerButton.Click += AddTexasTripleBurgerButton_Click;
-                AddAngryChickenButton.Click += AddAngryChickenButton_Click;
-                AddChiliCheeseFriesButton.Click += AddChiliCheeseFriesButton_Click;
-                AddCornDodgersButton.Click += AddCornDodgersButton_Click;
-                AddPanDeCampoButton.Click += AddPanDeCampoButton_Click;
-                AddBakedBeansButton.Click += AddBakedBeansButton_Click;
-                AddJerkedSodaButton.Click += AddJerkedSodaButton_Click;
+              
+                AddCowpokeChiliButton.Click += OnItemAddButtonClicked; ;
+                AddWaterButton.Click += OnItemAddButtonClicked;
+                AddTexasTeaButton.Click += OnItemAddButtonClicked;
+                AddCowboyCoffeeButton.Click += OnItemAddButtonClicked;
+                AddRustlersRibsButton.Click += OnItemAddButtonClicked;
+                AddPekosPulledPorkButton.Click += OnItemAddButtonClicked;
+                AddTrailBurgerButton.Click += OnItemAddButtonClicked;
+                AddDakotaDoubleBurgerButton.Click += OnItemAddButtonClicked;
+                AddTexasTripleBurgerButton.Click += OnItemAddButtonClicked;
+                AddAngryChickenButton.Click += OnItemAddButtonClicked;
+                AddChiliCheeseFriesButton.Click += OnItemAddButtonClicked;
+                AddCornDodgersButton.Click += OnItemAddButtonClicked;
+                AddPanDeCampoButton.Click += OnItemAddButtonClicked;
+                AddBakedBeansButton.Click += OnItemAddButtonClicked;
+                AddJerkedSodaButton.Click += OnItemAddButtonClicked;
             }
         }
         /// <summary>
-        /// The Cowpoke Chili Button Action
+        /// Actions for where an item button is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
+        public void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
             if (DataContext is Order order)
             {
-                order.Add(new CowpokeChili());
-            }
-        }
-        /// <summary>
-        /// The Water Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddWaterButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new Water());
-            }
+                if(sender is Button button)
+                {
+                    switch (button.Tag)
+                    {
+                        case "Trailburger":
+                            order.Add(new TrailBurger());
+                            orderControl.SwapScreen(new CustomizeTrailBurger());
+                            break;
+                        case "DakotaDoubleBurger":
+                            order.Add(new DakotaDoubleBurger());
+                            orderControl.SwapScreen(new CustomizeDakotaDoubleBurger());
+                            break;
+                        case "CowpokeChili":
+                            var entree = new CowpokeChili();
+                            var screen = new CustomizeCowpokeChili();
+                            screen.DataContext = entree;
+                            order.Add(entree);
+                            orderControl.SwapScreen(screen);
+                            break;
+                        case "PekosPulledPork":
+                            order.Add(new PecosPulledPork());
+                            orderControl.SwapScreen(new CustomizePekosPulledPork());
+                            break;
+                        case "Water":
+                            order.Add(new Water());
+                            orderControl.SwapScreen(new CustomizeWater());
+                            break;
+                        case "JerkedSoda":
+                            order.Add(new JerkedSoda());
+                            orderControl.SwapScreen(new CustomizeJerkedSoda());
+                            break;
+                        case "TexasTea":
+                            order.Add(new TexasTea());
+                            orderControl.SwapScreen(new CustomizeTexasTea());
+                            break;
+                        case "CowboyCoffee":
+                            order.Add(new CowboyCoffee());
+                            orderControl.SwapScreen(new CustomizeCowboyCoffee());
+                            break;
+                        case "AngryChicken":
+                            order.Add(new AngryChicken());
+                            orderControl.SwapScreen(new CustomizeAngryChicken());
+                            break;
+                        case "RustlersRibs":
+                            order.Add(new RustlersRibs());
+                            orderControl.SwapScreen(new CustomizeRustlerRibs());
+                            break;
+                        case "TexasTripleBurger":
+                            order.Add(new TexasTripleBurger());
+                            orderControl.SwapScreen(new CustomizeTexasTripleBurger());
+                            break;
+                        case "CornDodgers":
+                            order.Add(new CornDodgers());
+                            orderControl.SwapScreen(new CustomizeSide());
+                            break;
+                        case "ChiliCheeseFries":
+                            order.Add(new ChiliCheeseFries());
+                            orderControl.SwapScreen(new CustomizeSide());
+                            break;
+                        case "PandeCampo":
+                            order.Add(new PanDeCampo());
+                            orderControl.SwapScreen(new CustomizeSide());
+                            break;
+                        case "BakedBeans":
+                            order.Add(new BakedBeans());
+                            orderControl.SwapScreen(new CustomizeSide());
+                            break;
 
-        }
-        /// <summary>
-        /// The Texas Tea Button Click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTeaButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new TexasTea());
+                    }
+                }
             }
         }
-        /// <summary>
-        /// The Cowboy Coffee Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCowboyCoffeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new CowboyCoffee());
-            }
-        }
-        /// <summary>
-        /// The Pekos Pulled Pork Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPekosPulledPorkButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new PecosPulledPork());
-            }
-        }
-        /// <summary>
-        /// The Trail Burger Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTrailBurgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new TrailBurger());
-            }
-        }
-        /// <summary>
-        /// The Dakota Double Burger Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddDakotaDoubleBurgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new DakotaDoubleBurger());
-            }
-        }
-        /// <summary>
-        /// The Texas Triple Burger Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTripleBurgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new TexasTripleBurger());
-            }
-        }
-        /// <summary>
-        /// The Angry Chicken Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddAngryChickenButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new AngryChicken());
-            }
-        }
-        /// <summary>
-        /// the Rustler's Ribs Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddRustlersRibsButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new RustlersRibs());
-            }
-        }
-        /// <summary>
-        /// The Chili Cheese Fries Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddChiliCheeseFriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new ChiliCheeseFries());
-            }
-        }
-        /// <summary>
-        /// The Pan De Campo Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new PanDeCampo());
-            }
-        }
-        /// <summary>
-        /// The Baked Beans Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddBakedBeansButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new BakedBeans());
-            }
-        }
-        /// <summary>
-        /// The Corn Dodgers Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCornDodgersButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new CornDodgers());
-            }
-        }
-        /// <summary>
-        /// The Jerked Soda Button Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddJerkedSodaButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                order.Add(new JerkedSoda());
-            }
-        }
+
+
 
 
 
