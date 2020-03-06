@@ -45,6 +45,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
+         
             this.DataContext = new Order();
             
         }
@@ -65,7 +66,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void ItemSelctionButton_Click(object sender, RoutedEventArgs e)
         {
-            SwapScreen(new MenuItemSelectionControl());
+            Container.Child = new MenuItemSelectionControl();
         }
 
         /// <summary>

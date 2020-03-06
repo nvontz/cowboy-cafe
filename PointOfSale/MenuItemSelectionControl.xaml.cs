@@ -28,13 +28,13 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
-  
+        /// <summary>
+        /// Initailizer for MenuItemSelectionControl 
+        /// </summary>
         public MenuItemSelectionControl()
         {
-
             {
-                InitializeComponent();
-              
+                InitializeComponent();              
                 AddCowpokeChiliButton.Click += OnItemAddButtonClicked; ;
                 AddWaterButton.Click += OnItemAddButtonClicked;
                 AddTexasTeaButton.Click += OnItemAddButtonClicked;
@@ -64,34 +64,26 @@ namespace PointOfSale
             {
                 if(sender is Button button)
                 {
+
                     switch (button.Tag)
                     {
+                        case "CowpokeChili":
+                            AddItemAndOpenCustomizationScreen(new CowpokeChili(), new CustomizeCowpokeChili());
+                            break;
                         case "Trailburger":
-                            order.Add(new TrailBurger());
-                            orderControl.SwapScreen(new CustomizeTrailBurger());
+                            AddItemAndOpenCustomizationScreen(new TrailBurger(), new CustomizeTrailBurger());
                             break;
                         case "DakotaDoubleBurger":
-                            order.Add(new DakotaDoubleBurger());
-                            orderControl.SwapScreen(new CustomizeDakotaDoubleBurger());
-                            break;
-                        case "CowpokeChili":
-                            var entree = new CowpokeChili();
-                            var screen = new CustomizeCowpokeChili();
-                            screen.DataContext = entree;
-                            order.Add(entree);
-                            orderControl.SwapScreen(screen);
-                            break;
+                            AddItemAndOpenCustomizationScreen(new DakotaDoubleBurger(), new CustomizeDakotaDoubleBurger());
+                            break;                   
                         case "PekosPulledPork":
-                            order.Add(new PecosPulledPork());
-                            orderControl.SwapScreen(new CustomizePekosPulledPork());
+                            AddItemAndOpenCustomizationScreen(new PecosPulledPork(), new CustomizePekosPulledPork());
                             break;
                         case "Water":
-                            order.Add(new Water());
-                            orderControl.SwapScreen(new CustomizeWater());
+                            AddItemAndOpenCustomizationScreen(new Water(), new CustomizeWater());
                             break;
                         case "JerkedSoda":
-                            order.Add(new JerkedSoda());
-                            orderControl.SwapScreen(new CustomizeJerkedSoda());
+                            AddItemAndOpenCustomizationScreen(new JerkedSoda(), new CustomizeJerkedSoda());
                             break;
                         case "TexasTea":
                             order.Add(new TexasTea());
@@ -135,9 +127,21 @@ namespace PointOfSale
             }
         }
 
+        public void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext should be an Order instance");
 
+            if(screen != null)
+            {
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("An Ancestor was not found");
 
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
 
-
+            order.Add(item);
+        }
     }
 }
