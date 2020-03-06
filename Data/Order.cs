@@ -64,6 +64,7 @@ namespace CowboyCafe.Data
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            item.PropertyChanged += ItemChange;
         }
         /// <summary>
         /// Removes the selected item from the order
@@ -74,6 +75,16 @@ namespace CowboyCafe.Data
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            item.PropertyChanged -= ItemChange;
+        }
+
+        private void ItemChange(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items")); 
+            if(e.PropertyName == "Price")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            }
         }
 
 

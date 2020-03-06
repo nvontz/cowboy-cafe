@@ -35,7 +35,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Left" Text="{Binding}"/>
                         <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
-                        <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0" />
+                        <ListBox Grid.Column="1" Grid.Row="1" Margin="20,0,0,0" ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0" />
                     </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

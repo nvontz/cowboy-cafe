@@ -86,47 +86,42 @@ namespace PointOfSale
                             AddItemAndOpenCustomizationScreen(new JerkedSoda(), new CustomizeJerkedSoda());
                             break;
                         case "TexasTea":
-                            order.Add(new TexasTea());
-                            orderControl.SwapScreen(new CustomizeTexasTea());
+                            AddItemAndOpenCustomizationScreen(new TexasTea(), new CustomizeTexasTea());
                             break;
                         case "CowboyCoffee":
-                            order.Add(new CowboyCoffee());
-                            orderControl.SwapScreen(new CustomizeCowboyCoffee());
+                            AddItemAndOpenCustomizationScreen(new CowboyCoffee(), new CustomizeCowboyCoffee());
                             break;
                         case "AngryChicken":
-                            order.Add(new AngryChicken());
-                            orderControl.SwapScreen(new CustomizeAngryChicken());
+                            AddItemAndOpenCustomizationScreen(new AngryChicken(), new CustomizeAngryChicken());
                             break;
                         case "RustlersRibs":
-                            order.Add(new RustlersRibs());
-                            orderControl.SwapScreen(new CustomizeRustlerRibs());
+                            AddItemAndOpenCustomizationScreen(new RustlersRibs(), null);
                             break;
                         case "TexasTripleBurger":
-                            order.Add(new TexasTripleBurger());
-                            orderControl.SwapScreen(new CustomizeTexasTripleBurger());
+                            AddItemAndOpenCustomizationScreen(new TexasTripleBurger(), new CustomizeTexasTripleBurger());
                             break;
                         case "CornDodgers":
-                            order.Add(new CornDodgers());
-                            orderControl.SwapScreen(new CustomizeSide());
+                            AddItemAndOpenCustomizationScreen(new CornDodgers(), new CustomizeSide());
                             break;
                         case "ChiliCheeseFries":
-                            order.Add(new ChiliCheeseFries());
-                            orderControl.SwapScreen(new CustomizeSide());
+                            AddItemAndOpenCustomizationScreen(new ChiliCheeseFries(), new CustomizeSide());
                             break;
                         case "PandeCampo":
-                            order.Add(new PanDeCampo());
-                            orderControl.SwapScreen(new CustomizeSide());
+                            AddItemAndOpenCustomizationScreen(new PanDeCampo(), new CustomizeSide());
                             break;
                         case "BakedBeans":
-                            order.Add(new BakedBeans());
-                            orderControl.SwapScreen(new CustomizeSide());
+                            AddItemAndOpenCustomizationScreen(new BakedBeans(), new CustomizeSide());
                             break;
 
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Helper method that switches screens and adds items to the list
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="screen"></param>
         public void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             var order = DataContext as Order;
@@ -142,6 +137,11 @@ namespace PointOfSale
             }
 
             order.Add(item);
+        }
+
+        public void SetSize()
+        {
+
         }
     }
 }

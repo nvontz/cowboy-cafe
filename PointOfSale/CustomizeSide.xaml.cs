@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CowboyCafe.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,13 +22,34 @@ namespace PointOfSale
         public CustomizeSide()
         {
             InitializeComponent();
+            SmallButton.Click += SizeChange;
+            MediumButton.Click += SizeChange;
+            LargeButton.Click += SizeChange;
         }
 
+        private void SizeChange(object sender, RoutedEventArgs e)
+        {
 
-       
-    private void small_Click(object sender, RoutedEventArgs e)
+            if(DataContext is Side side)
             {
-            
+                if (sender is Button button)
+                {
+                    switch (button.Tag)
+                    {
+                        case "Small":
+                            side.Size = CowboyCafe.Data.Size.Small;
+                            break;
+                        case "Medium":
+                            side.Size = CowboyCafe.Data.Size.Medium;
+                            break;
+                        case "Large":
+                            side.Size = CowboyCafe.Data.Size.Large;
+                            break;
+                    }
+
+                }
             }
+
         }
     }
+}
