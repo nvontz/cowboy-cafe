@@ -44,7 +44,11 @@ namespace CowboyCafe.Data
         public bool Ketchup
         {
             get { return ketchup; }
-            set { ketchup = value; }
+            set
+            {
+                ketchup = value;
+                NotifyofPropertyChange("Ketchup");
+            }
         }
 
         private bool mustard = true;
@@ -54,7 +58,11 @@ namespace CowboyCafe.Data
         public bool Mustard
         {
             get { return mustard; }
-            set { mustard = value; }
+            set
+            { 
+                mustard = value;
+                NotifyofPropertyChange("Mustard");
+            }
         }
 
         private bool pickle = true;
@@ -64,7 +72,11 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set 
+            { 
+                pickle = value;
+                NotifyofPropertyChange("Pickle");
+            }
         }
         
         private bool cheese = true;
@@ -74,7 +86,11 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value; }
+            set 
+            {
+                cheese = value;
+                NotifyofPropertyChange("Cheese");
+            }
         }
 
         private bool bun = true;
@@ -84,7 +100,11 @@ namespace CowboyCafe.Data
         public bool Bun
         {
             get { return bun; }
-            set { bun = value; }
+            set 
+            {
+                bun = value;
+                NotifyofPropertyChange("Bun");
+            }
         }
         /// <summary>
         /// Special instructions for the preperation of the burger

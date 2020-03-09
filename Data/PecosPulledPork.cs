@@ -44,7 +44,11 @@ namespace CowboyCafe.Data
         public bool Bread
         {
             get { return bread; }
-            set { bread = value; }
+            set 
+            {
+                bread = value;
+                NotifyofPropertyChange("bread");            
+            }
         }
 
         private bool pickle = true;
@@ -54,7 +58,11 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set 
+            {
+                pickle = value;
+                NotifyofPropertyChange("pickle");
+            }
         }
         /// <summary>
         /// Special Instructions for the preperation of the Pulled Pork
