@@ -56,10 +56,23 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        private SodaFlavor flavor;
         /// <summary>
         /// Gets the flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor 
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyofPropertyChange("flavor");
+            }
+        }
         /// <summary>
         /// Special Instructions for the shoes
         /// </summary>

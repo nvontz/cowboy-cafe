@@ -42,7 +42,11 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set 
+            {
+                lemon = value;
+                NotifyofPropertyChange("Lemon");
+            }
         }
         /// <summary>
         /// Special Instructions for the water

@@ -6,6 +6,11 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <StackPanel>
         <TextBlock FontSize="30" Text="Customize Pekos Pulled Pork!"/>
         <StackPanel Orientation="Vertical">
