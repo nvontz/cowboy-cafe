@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeDakotaDoubleBurger.xaml.cs
+ * Purpose: Dakota Double Burger Customization Panel
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

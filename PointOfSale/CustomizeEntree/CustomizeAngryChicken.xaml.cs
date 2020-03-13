@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeAngryChicken.xaml.cs
+ * Purpose: Angry Chicken Customization Panel
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

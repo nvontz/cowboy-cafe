@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: ExtensionMethods.cs
+ * Purpose: Finds the Ancctor for an object
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

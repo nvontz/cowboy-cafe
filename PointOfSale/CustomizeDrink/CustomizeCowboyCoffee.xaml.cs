@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeCowboyCoffee.xaml.cs
+ * Purpose: The Cowboy Coffee Customization Panel 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

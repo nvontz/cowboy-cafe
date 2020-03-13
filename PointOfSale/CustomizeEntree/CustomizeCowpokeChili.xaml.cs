@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeCowpokeChili.xaml.cs
+ * Purpose: Cowpoke Chili Customize Panel 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

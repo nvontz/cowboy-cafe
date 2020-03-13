@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeJerkedSoda.xaml.cs
+ * Purpose: The Jerked Soda Customization Panel
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

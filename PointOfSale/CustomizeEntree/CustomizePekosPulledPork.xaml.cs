@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizePekosPulledPork.xaml.cs
+ * Purpose: The Order Customization Panel For the Pekos Pulled Pork Entree
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

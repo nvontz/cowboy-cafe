@@ -1,4 +1,10 @@
-﻿using CowboyCafe.Data;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeSide.xaml.cs
+ * Purpose: The Side Customization Control 
+ */
+
+using CowboyCafe.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +32,11 @@ namespace PointOfSale
             MediumButton.Click += SizeChange;
             LargeButton.Click += SizeChange;
         }
-
+        /// <summary>
+        /// Indicates what Size the User Wants
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SizeChange(object sender, RoutedEventArgs e)
         {
 

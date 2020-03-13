@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeTrailBurger.xaml.cs
+ * Purpose: The Trail Burger Customization Panel
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

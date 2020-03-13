@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeWater.xaml.cs
+ * Purpose: The Water Customization Panel
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

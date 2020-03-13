@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeTexasTripleBurger.xaml.cs
+ * Purpose: The Customization Panel for The Texas Triple Burger
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

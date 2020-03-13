@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Nathan Vontz
+ * Class: CustomizeTexasTea.xaml.cs
+ * Purpose: The Texas Tea Customization Panel 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
