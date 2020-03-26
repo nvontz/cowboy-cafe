@@ -17,6 +17,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
+using PointOfSale.CustomizeDrink;
+using PointOfSale.CustomizeEntree;
 
 namespace PointOfSale
 {
@@ -33,6 +36,20 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-       
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void OnRemoveItem(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (sender is Button button)
+                {
+                    
+                }
+            }
+        }
     }
 }
