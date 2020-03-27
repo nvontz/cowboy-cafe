@@ -38,11 +38,20 @@ namespace PointOfSale
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DataContext is IOrderItem item)
+            if (DataContext is Order order)
             {
-                var orderControl = this.FindAncestor<OrderControl>();
-              
-            }  
+                if (sender is ListView list)
+                {
+                    if (list.SelectedValue is IOrderItem item)
+                    {
+
+                        var orderControl = this.FindAncestor<OrderControl>();
+                        if (orderControl == null) throw new Exception("An Ancestor was not found");
+
+                        
+                    }
+                }
+            }
         }
 
         private void OnRemoveItem(object sender, RoutedEventArgs e)

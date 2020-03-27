@@ -21,7 +21,7 @@
       
         <TextBlock  Grid.Row="0" Text="{Binding Path= OrderNumber, StringFormat= {}Order {0}}" />
        
-            <ListView SelectionChanged="ListView_SelectionChanged" Name="OrderSummary" FontSize="16" Grid.Row="1" ItemsSource="{Binding Path=Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+            <ListView SelectionChanged="ListView_SelectionChanged" SelectionMode="Single" Name="OrderSummary" FontSize="16" Grid.Row="1" ItemsSource="{Binding Path=Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
                 <ListView.ItemTemplate >
                     <DataTemplate>
                         <Grid>
