@@ -1,5 +1,5 @@
 ﻿
-+/*
+/*
  * Author: Nathan Vontz
  * Class: OrderSummaryControl.xaml.cs
  * Purpose: The Order Menu for the Restaurant 
