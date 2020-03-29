@@ -35,7 +35,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Allows user to access customiztion through the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DataContext is Order order)
@@ -44,16 +48,58 @@ namespace PointOfSale
                 {
                     if (list.SelectedValue is IOrderItem item)
                     {
-
                         var orderControl = this.FindAncestor<OrderControl>();
                         if (orderControl == null) throw new Exception("An Ancestor was not found");
-
+                        var screen = new FrameworkElement();
                         
+                        switch(item)
+                        {
+                            case AngryChicken chicken:
+                                screen = new CustomizeAngryChicken();
+                                break;
+                            case CowpokeChili chili:
+                                screen = new CustomizeCowpokeChili();
+                                break;
+                            case TrailBurger burger:
+                                screen = new CustomizeTrailBurger();
+                                break;
+                            case DakotaDoubleBurger burger:
+                                screen = new CustomizeDakotaDoubleBurger();
+                                break;
+                            case PecosPulledPork Pork:
+                                screen = new CustomizePekosPulledPork();
+                                break;
+                            case Water water:
+                                screen = new CustomizeWater();
+                                break;
+                            case JerkedSoda soda:
+                                screen = new CustomizeJerkedSoda();
+                                break;
+                            case TexasTea tea:
+                                screen = new CustomizeTexasTea();
+                                break;
+                            case CowboyCoffee coffee:
+                                screen = new CustomizeCowboyCoffee();
+                                break;
+                            case TexasTripleBurger burger:
+                                screen = new CustomizeTexasTripleBurger();
+                                break;
+                            case Side side:
+                                screen = new CustomizeSide();
+                                break;
+                        }
+                        screen.DataContext = item;
+                        orderControl.SwapScreen(screen);
+
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Allows user to remove item from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnRemoveItem(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
