@@ -139,9 +139,5 @@ namespace PointOfSale
             order.Add(item);
         }
 
-        public void SetSize()
-        {
-
-        }
     }
 }
