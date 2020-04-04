@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="PointOfSale.CashControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="20" Text="Enter Payment"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            
+            <Button Click="Penny_Click">Penny</Button>
+            <Button Click="Nickel_Click">Nickel</Button>
+            <Button Click="Dime_Click">Dime</Button>
+            <Button Click="Quarter_Click">Quarter</Button>
+            <Button Click="HalfDollar_Click">Half Dollar</Button>
+            <Button Click="DollarCoin_Click">Dollar Coin</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button Click="DollarBill_Click">1$ Bill</Button>
+            <Button>2$ Bill</Button>
+            <Button>5$ Bill</Button>
+            <Button>10$ Bill</Button>
+            <Button>20$ Bill</Button>
+            <Button>50$ Bill</Button>
+            <Button>100$ Bill</Button>
+        </StackPanel>
+        <TextBlock FontSize="20" Grid.Column="2"  Text="Payment Added"/>
+        <ListBox Grid.Column="2" Grid.Row="1">
+            
+        </ListBox>
+        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" Text="Total Added"/>
+    </Grid>
+</UserControl>

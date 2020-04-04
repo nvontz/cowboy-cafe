@@ -48,6 +48,7 @@ namespace PointOfSale
         {
          
             this.DataContext = new Order();
+            Container.Child = new MenuItemSelectionControl();
             
         }
         /// <summary>
@@ -57,8 +58,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
-          
+            Screen.Child = new TranscationControl();
+            
+            
         }
         /// <summary>
         /// The Item Selection Button for the order
@@ -77,6 +79,15 @@ namespace PointOfSale
         public void SwapScreen(UIElement element)
         {
             Container.Child = element;
+        }
+
+        /// <summary>
+        /// Swaps the largest screens when cancelling and completing orders
+        /// </summary>
+        /// <param name="element"></param>
+        public void SwapOrderScreen(UIElement element)
+        {
+            Screen.Child = element;
         }
     }
 }

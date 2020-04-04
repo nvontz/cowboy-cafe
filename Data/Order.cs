@@ -20,7 +20,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// the current order number
         /// </summary>
-        public uint OrderNumber { get { return (++lastOrderNumber)/2; } }
+        public uint OrderNumber { get { return ++lastOrderNumber; } }
         /// <summary>
         /// A list of the items being ordered
         /// </summary>
@@ -52,6 +52,21 @@ namespace CowboyCafe.Data
             }
         }
         /// <summary>
+        /// constant for the tax price
+        /// </summary>
+        public const double TAX = 0.16;
+        /// <summary>
+        /// gets the total with tax
+        /// </summary>
+        public double total
+        {
+            get
+            {
+                return subtotal + subtotal * TAX;
+            }
+        }
+
+        /// <summary>
         /// Checks if anything has been changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,6 +79,7 @@ namespace CowboyCafe.Data
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             item.PropertyChanged += ItemChange;
         }
         /// <summary>
@@ -75,6 +91,7 @@ namespace CowboyCafe.Data
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             item.PropertyChanged -= ItemChange;
         }
 
@@ -84,6 +101,7 @@ namespace CowboyCafe.Data
             if(e.PropertyName == "Price")
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             }
         }
 
