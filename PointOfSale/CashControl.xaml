@@ -44,12 +44,12 @@
         </ListBox>
 
         <TextBlock FontSize="20" Grid.Column="0" Grid.Row="2" Text="Total Due"/>
-        <TextBlock FontSize="20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalDue, StringFormat=c}"/>
+        <TextBlock FontSize="20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalDue, StringFormat=c}"/>
 
         <TextBlock FontSize="20" Grid.Column="1" Grid.Row="2" Text="Total Paid"/>
-        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=AmountAdded, StringFormat=c}"/>
+        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=AmountAdded, StringFormat=c}"/>
 
         <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" Text="Remaining"/>
-        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalLeft, StringFormat=c}"/>
+        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalLeft, StringFormat=c}"/>
     </Grid>
 </UserControl>

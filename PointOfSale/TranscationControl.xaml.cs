@@ -22,13 +22,13 @@ namespace PointOfSale
     public partial class TranscationControl : UserControl
     {
    
-
+        /// <summary>
+        /// Initializes the transcation control
+        /// </summary>
         public TranscationControl()
         {
             InitializeComponent();
         }
-
-        public double TotalPayment { get; set; }
         /// <summary>
         /// Method For Payment Using Cash
         /// </summary>
@@ -77,8 +77,10 @@ namespace PointOfSale
                     sb.Append("\nCredit used");
 
 
+
                     printer.Print(sb.ToString());
 
+                    MessageBox.Show("Receipt Printed");
 
                     DataContext = new Order();
                     var orderControl = this.FindAncestor<OrderControl>();
@@ -102,10 +104,7 @@ namespace PointOfSale
         {
             var orderControl = this.FindAncestor<OrderControl>();
             orderControl.SwapOrderScreen(new OrderControl());
+
         }
-        /// <summary>
-        /// Helper Method that prints the string
-        /// </summary>
-        /// <returns></returns>
     }
 }

@@ -225,7 +225,10 @@ namespace PointOfSale
 
 
         }
-
+        /// <summary>
+        /// Gets change and prints a receipt
+        /// </summary>
+        /// <param name="amount"></param>
         void GiveChange(double amount)
         {
             StringBuilder changegiven = new StringBuilder();
@@ -333,6 +336,7 @@ namespace PointOfSale
 
             printer.Print(sb.ToString());
 
+            MessageBox.Show("Receipt Printed");
 
             DataContext = new Order();
             var orderControl = this.FindAncestor<OrderControl>();

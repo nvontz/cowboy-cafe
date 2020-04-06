@@ -104,7 +104,11 @@ namespace CowboyCafe.Data
             
 
         }
-
+        /// <summary>
+        /// Keeps track of items change and updates the items dependent on that
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItemChange(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items")); 
