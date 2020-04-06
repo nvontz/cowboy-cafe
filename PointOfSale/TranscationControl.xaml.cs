@@ -27,6 +27,8 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        public double TotalPayment { get; set; }
         /// <summary>
         /// Method For Payment Using Cash
         /// </summary>
@@ -34,8 +36,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CashPaymentButton_Clicked(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapOrderScreen(new CashControl());
+            if(DataContext is Order order)
+            {
+                var orderControl = this.FindAncestor<OrderControl>();    
+                orderControl.SwapOrderScreen(new CashControl(order.total));
+            }
+
         }
         /// <summary>
         /// Method for Payment using a Credit Card
@@ -51,7 +57,7 @@ namespace PointOfSale
                 if(result == ResultCode.Success)
                 {
                     ReceiptPrinter printer = new ReceiptPrinter();
-                    printer.Print(ReciptString());
+                    ReciptString("Credit");
 
                     DataContext = new Order();
                     var orderControl = this.FindAncestor<OrderControl>();
@@ -80,9 +86,14 @@ namespace PointOfSale
         /// Helper Method that prints the string
         /// </summary>
         /// <returns></returns>
-        private string ReciptString()
+        public void ReciptString(string ending)
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+            if(DataContext is Order order)
+            {
+               
+                order.OrderNumber.ToString();
+            }
         }
     }
 }

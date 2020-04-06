@@ -31,17 +31,25 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Button Click="DollarBill_Click">1$ Bill</Button>
-            <Button>2$ Bill</Button>
-            <Button>5$ Bill</Button>
-            <Button>10$ Bill</Button>
-            <Button>20$ Bill</Button>
-            <Button>50$ Bill</Button>
-            <Button>100$ Bill</Button>
+            <Button Click="TwoBill_Click">2$ Bill</Button>
+            <Button Click="FiveBill_Click">5$ Bill</Button>
+            <Button Click="TenBill_Click">10$ Bill</Button>
+            <Button Click="TwentyBill_Click">20$ Bill</Button>
+            <Button Click="FiftyBill_Click">50$ Bill</Button>
+            <Button Click="HundredBill_Click">100$ Bill</Button>
         </StackPanel>
         <TextBlock FontSize="20" Grid.Column="2"  Text="Payment Added"/>
-        <ListBox Grid.Column="2" Grid.Row="1">
+        <ListBox Grid.Column="2" Grid.Row="1" Name="MoneyHistory">
             
         </ListBox>
-        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" Text="Total Added"/>
+
+        <TextBlock FontSize="20" Grid.Column="0" Grid.Row="2" Text="Total Due"/>
+        <TextBlock FontSize="20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalDue, StringFormat=c}"/>
+
+        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="2" Text="Total Paid"/>
+        <TextBlock FontSize="20" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=AmountAdded, StringFormat=c}"/>
+
+        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" Text="Remaining"/>
+        <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:CashControl}, Path=TotalLeft, StringFormat=c}"/>
     </Grid>
 </UserControl>
