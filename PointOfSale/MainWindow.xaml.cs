@@ -30,6 +30,6 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-
+       
     }
 }

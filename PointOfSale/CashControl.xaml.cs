@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using CashRegister;
 using CowboyCafe.Data;
 using System.ComponentModel;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -30,33 +31,37 @@ namespace PointOfSale
         /// <summary>
         /// creates a cashdrawer that is used
         /// </summary>
-        CashDrawer drawer = new CashDrawer();
+        static CashDrawer drawer = new CashDrawer();
         /// <summary>
         /// Initializes the CashController
         /// </summary>
-        public CashControl(double total)
+        public CashControl(Order order)
         {
             InitializeComponent();
-            
-            this.DataContext = drawer;
-            TotalDue = total;
-            
+            TotalDue = order.total;
+            neworder = order;   
         }
-
-        
-
+        private Order neworder { get; set; }
+        /// <summary>
+        /// Keeps track of the amount the user inputed
+        /// </summary>
         public double AmountAdded { get; set; }
 
-
+        /// <summary>
+        /// The amount the user owes
+        /// </summary>
         public double TotalDue { get; set; }
-
+        /// <summary>
+        /// The amount of money the customer has left to pay
+        /// </summary>
         public double TotalLeft
         {
             get { return TotalDue - AmountAdded; }
         }
-
+        /// <summary>
+        /// Sets the TotalValue to the drawer.TotalValue
+        /// </summary>
         public double TotalValue => drawer.TotalValue;
-
         /// <summary>
         /// Adds a Penny when button clicked to drawer
         /// </summary>
@@ -67,8 +72,6 @@ namespace PointOfSale
             drawer.AddCoin(Coins.Penny, 1);
             AmountAdded += .01;
             InvokePropertyChanged("Pennies");
-            
-            
         }
         /// <summary>
         /// Adds a Nickel when button clicked to drawer
@@ -216,7 +219,7 @@ namespace PointOfSale
 
             if(TotalLeft < 0)
             {
-                double amount = Math.Round(TotalValue, 2);
+                double amount = Math.Round(TotalLeft, 2);
                 GiveChange(amount);
             }
 
@@ -226,84 +229,115 @@ namespace PointOfSale
         void GiveChange(double amount)
         {
             StringBuilder changegiven = new StringBuilder();
-            while (amount < 0)
+            double change = Math.Round(Math.Abs(amount), 2);
+            double changeprint = change;
+            while (Math.Round(change, 2) != 0)
             {
-                if (amount <= -100 && drawer.Hundreds > 0)
+                if (change >= 100 && drawer.Hundreds > 0)
                 {
                     drawer.RemoveBill(Bills.Hundred, 1);
-                    amount += 100;
                     changegiven.Append("Hundred Bill \n");
+                    change -= 100;
                 }
-                else if (amount <= -50 && drawer.Fifties > 0)
+                else if (change >= 50 && drawer.Fifties > 0)
                 {
                     drawer.RemoveBill(Bills.Fifty, 1);
-                    amount += 50;
                     changegiven.Append("Fifty Bill \n");
+                    change -= 50;
                 }
-                else if (amount <= -20 && drawer.Twenties > 0)
+                else if (change >= 20 && drawer.Twenties > 0)
                 {
                     drawer.RemoveBill(Bills.Twenty, 1);
-                    amount += 20;
                     changegiven.Append("Twenty Bill \n");
+                    change -= 20;
                 }
-                else if (amount <= -10 && drawer.Tens > 0)
+                else if (change >= 10 && drawer.Tens > 0)
                 {
                     drawer.RemoveBill(Bills.Ten, 1);
-                    amount += 10;
                     changegiven.Append("Ten Bill \n");
+                    change -= 10;
                 }
-                else if (amount <= -5 && drawer.Fives > 0)
+                else if (change >= 5 && drawer.Fives > 0)
                 {
                     drawer.RemoveBill(Bills.Five, 1);
-                    amount += 5;
                     changegiven.Append("Five Bill \n");
+                    change -= 5;
                 }
-                else if (amount <= -1 && drawer.Ones > 0)
+                else if (change >= 1 && drawer.Ones > 0)
                 {
                     drawer.RemoveBill(Bills.One, 1);
-                    amount += 1;
                     changegiven.Append("Dollar Bill \n");
+                    change -= 1;
                 }
-                else if (amount <= -.5 && drawer.HalfDollars > 0)
+                else if (change >= .5 && drawer.HalfDollars > 0)
                 {
                     drawer.RemoveCoin(Coins.HalfDollar, 1);
-                    amount += .50;
                     changegiven.Append("Half Dollar \n");
+                    change -= .50;
                 }
-                else if (amount <= -.25 && drawer.Quarters > 0)
+                else if (change >= .25 && drawer.Quarters > 0)
                 {
                     drawer.RemoveCoin(Coins.Quarter, 1);
-                    amount += .25;
                     changegiven.Append("Quarter \n");
+                    change -= .25;
                 }
-                else if (amount <= -.1 && drawer.Dimes > 0)
+                else if (change >= .1 && drawer.Dimes > 0)
                 {
                     drawer.RemoveCoin(Coins.Dime, 1);
-                    amount += .10;
                     changegiven.Append("Dime \n");
+                    change -= .10;
                 }
-                else if (amount <= -.05 && drawer.Nickels > 0)
+                else if (change >= .05 && drawer.Nickels > 0)
                 {
                     drawer.RemoveCoin(Coins.Nickel, 1);
-                    amount += .05;
                     changegiven.Append("Nickel \n");
+                    change -= .05;
                 }
-                else if (amount <= -.01 && drawer.Pennies > 0)
+                else if (change >= .01 && drawer.Pennies > 0)
                 {
                     drawer.RemoveCoin(Coins.Penny, 1);
-                    amount += .01;
                     changegiven.Append("Penny \n");
+                    change -= .01;
                 }
-                else if (TotalValue == 0)
+                else if (drawer.Pennies == 0)
                 {
-                    MessageBox.Show("Not Enough Change");
+                    MessageBox.Show("Not Enough Change Adding a new registers worth");
+                    drawer = new CashDrawer();
+                }
+                else if (change < 0.00)
+                {
+                    break;
                 }
             }
 
-            string change = "";
-            var tansaction = new TranscationControl();
-            tansaction.ReciptString(change);
-        }
+            ReceiptPrinter printer = new ReceiptPrinter();
 
+            StringBuilder sb = new StringBuilder();
+            sb.Append("\n");
+            sb.Append("\nOrder Number " + neworder.OrderNumber.ToString());
+            string date = DateTime.Now.ToString();
+            sb.Append("\n" + date);
+            foreach (IOrderItem item in neworder.Items)
+            {
+                sb.Append("\n" + item.ToString() + "   ");
+                sb.Append(item.Price.ToString("C2"));
+                foreach (string instruct in item.SpecialInstructions)
+                {
+                    sb.Append("\n" + instruct.ToString());
+                }
+            }
+            sb.Append("\nSubtotal " + neworder.Subtotal.ToString("C2"));
+            sb.Append("\nTotal With Tax " + neworder.total.ToString("C2"));
+            sb.Append("\nAmount Paid " + AmountAdded.ToString("C2"));
+            sb.Append("\nChange Returned " + changeprint.ToString("C2"));
+
+            printer.Print(sb.ToString());
+
+
+            DataContext = new Order();
+            var orderControl = this.FindAncestor<OrderControl>();
+            orderControl.SwapOrderScreen(new OrderControl());
+
+        }
     }
 }

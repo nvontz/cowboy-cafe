@@ -39,7 +39,7 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 var orderControl = this.FindAncestor<OrderControl>();    
-                orderControl.SwapOrderScreen(new CashControl(order.total));
+                orderControl.SwapOrderScreen(new CashControl(order));
             }
 
         }
@@ -57,7 +57,28 @@ namespace PointOfSale
                 if(result == ResultCode.Success)
                 {
                     ReceiptPrinter printer = new ReceiptPrinter();
-                    ReciptString("Credit");
+                    
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("\n");
+                    sb.Append("\nOrder Number " + order.OrderNumber.ToString());
+                    string date = DateTime.Now.ToString();
+                    sb.Append("\n" + date);
+                    foreach(IOrderItem item in order.Items)
+                    {
+                        sb.Append("\n" + item.ToString() + "   ");
+                        sb.Append(item.Price.ToString("C2"));
+                        foreach(string instruct in item.SpecialInstructions)
+                        {
+                            sb.Append("\n" + instruct.ToString());
+                        }
+                    }
+                    sb.Append("\nSubtotal " + order.Subtotal.ToString("C2"));
+                    sb.Append("\nTotal With Tax " + order.total.ToString("C2"));
+                    sb.Append("\nCredit used");
+
+
+                    printer.Print(sb.ToString());
+
 
                     DataContext = new Order();
                     var orderControl = this.FindAncestor<OrderControl>();
@@ -86,14 +107,5 @@ namespace PointOfSale
         /// Helper Method that prints the string
         /// </summary>
         /// <returns></returns>
-        public void ReciptString(string ending)
-        {
-            StringBuilder sb = new StringBuilder();
-            if(DataContext is Order order)
-            {
-               
-                order.OrderNumber.ToString();
-            }
-        }
     }
 }

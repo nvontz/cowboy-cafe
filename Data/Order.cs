@@ -14,13 +14,20 @@ namespace CowboyCafe.Data
     public class Order : INotifyPropertyChanged
     {
         /// <summary>
+        /// Custructor to initialize order
+        /// </summary>
+        public Order()
+        {
+            lastOrderNumber++;
+        }
+        /// <summary>
         /// holds the last order number
         /// </summary>
         private static uint lastOrderNumber = 0;
         /// <summary>
         /// the current order number
         /// </summary>
-        public uint OrderNumber { get { return ++lastOrderNumber; } }
+        public uint OrderNumber { get { return lastOrderNumber; } }
         /// <summary>
         /// A list of the items being ordered
         /// </summary>
@@ -81,6 +88,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             item.PropertyChanged += ItemChange;
+            
         }
         /// <summary>
         /// Removes the selected item from the order
@@ -93,6 +101,8 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             item.PropertyChanged -= ItemChange;
+            
+
         }
 
         private void ItemChange(object sender, PropertyChangedEventArgs e)
@@ -105,6 +115,6 @@ namespace CowboyCafe.Data
             }
         }
 
-
+        
     }
 }

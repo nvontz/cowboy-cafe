@@ -46,10 +46,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
-         
             this.DataContext = new Order();
-            Container.Child = new MenuItemSelectionControl();
-            
+            Container.Child = new MenuItemSelectionControl();    
         }
         /// <summary>
         /// the Complete Button for the Order
@@ -59,8 +57,6 @@ namespace PointOfSale
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             Screen.Child = new TranscationControl();
-            
-            
         }
         /// <summary>
         /// The Item Selection Button for the order
