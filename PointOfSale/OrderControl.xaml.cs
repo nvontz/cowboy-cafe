@@ -38,6 +38,8 @@ namespace PointOfSale
 
             CancelOrderButton.Click += CancelOrderButton_Click;
             CompleteOrderButton.Click += CompleteOrderButton_Click;
+
+            var result = (OrderControl)DataContext;
         }
         /// <summary>
         /// The Cancel Button for the Order
