@@ -4,11 +4,54 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
     <h1 class="display-4">Cowboy Cafe</h1>
-    <p>We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-    Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-    Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
-    You’ve had a hard ride - so take it easy with us.</p>
-    <h2 class="display-4">Entrees - Sides - Drinks</h2>
-</div>
+    <p>
+        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
+        You’ve had a hard ride - so take it easy with us.
+    </p>
+    <h2>Entrees - Sides - Drinks</h2>
+
+    <u1 class="menu-items">          
+        @foreach (IOrderItem item in Menu.CompleteMenu())
+        {
+            <li>
+                <div class="Entree-item">
+                    @foreach (IOrderItem food in Menu.Entrees())
+                    {
+                        @if (food is Entree entree)
+                        {
+                            <div class="entree">@entree.ToString()</div>
+                            <div class="entree-price">@entree.Price</div>
+                            <div class="entree-cal">@entree.Calories</div>
+                        }
+                    }
+                </div>
+                <div class="Side-item">
+                    @foreach (IOrderItem food in Menu.Sides())
+                    {
+                        @if (food is Side side)
+                        {
+                            <div class="side">@side.ToString()</div>
+                            <div class="side-price">@side.Price</div>
+                            <div class="side-cal">@side.Calories</div>
+                        }
+                    }
+                </div>
+                <div class="Drink-item">
+                    @foreach (IOrderItem food in Menu.Drinks())
+                    {
+                        @if (food is Drink drink)
+                        {
+                            <div class="drink">@drink.ToString()</div>
+                            <div class="drink-price">@drink.Price</div>
+                            <div class="drink-cal">@drink.Calories</div>
+                        }
+                    }
+                </div>
+
+            </li>
+        }
+    </u1>
+
