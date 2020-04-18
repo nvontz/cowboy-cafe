@@ -81,8 +81,19 @@ u1.menu-items > li {
     min-height: 50px;
 }
 
-.Entree-item, Drink-item, Side-item {
+Side-item, Drink-item, Entree-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+
+.side-cal::after, .entree-cal::after, .drink-cal::after {
+    content: " Calories";
+}
+
+.entree, .side, .drink{
+    color: black;
+    font-size: 1.4rem;
+    
 }
 

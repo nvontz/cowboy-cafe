@@ -11,47 +11,60 @@
         Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
         You’ve had a hard ride - so take it easy with us.
     </p>
-    <h2>Entrees - Sides - Drinks</h2>
+
 
     <u1 class="menu-items">          
-        @foreach (IOrderItem item in Menu.CompleteMenu())
-        {
             <li>
                 <div class="Entree-item">
+                    <h2>Entrees</h2>
                     @foreach (IOrderItem food in Menu.Entrees())
                     {
                         @if (food is Entree entree)
                         {
                             <div class="entree">@entree.ToString()</div>
-                            <div class="entree-price">@entree.Price</div>
+                            <div class="entree-price">@string.Format("{0:C}", entree.Price)</div>
                             <div class="entree-cal">@entree.Calories</div>
                         }
                     }
                 </div>
                 <div class="Side-item">
+                    <h2>Sides</h2>
                     @foreach (IOrderItem food in Menu.Sides())
                     {
                         @if (food is Side side)
                         {
-                            <div class="side">@side.ToString()</div>
-                            <div class="side-price">@side.Price</div>
-                            <div class="side-cal">@side.Calories</div>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                if (i == 0) side.Size = Size.Small;
+                                if (i == 1) side.Size = Size.Medium;
+                                if (i == 2) side.Size = Size.Large;
+                                <div class="side">@side.ToString()</div>
+                                <div class="side-price">@string.Format("{0:C}", side.Price)</div>
+                                <div class="side-cal">@side.Calories</div>
+                            }
+
                         }
                     }
                 </div>
                 <div class="Drink-item">
+                    <h2>Drinks</h2>
                     @foreach (IOrderItem food in Menu.Drinks())
                     {
                         @if (food is Drink drink)
                         {
-                            <div class="drink">@drink.ToString()</div>
-                            <div class="drink-price">@drink.Price</div>
-                            <div class="drink-cal">@drink.Calories</div>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                if (i == 0) drink.Size = Size.Small;
+                                if (i == 1) drink.Size = Size.Medium;
+                                if (i == 2) drink.Size = Size.Large;
+                                <div class="drink">@drink.ToString()</div>
+                                <div class="drink-price">@string.Format("{0:C}", drink.Price)</div>
+                                <div class="drink-cal">@drink.Calories</div>
+                            }
                         }
                     }
                 </div>
 
             </li>
-        }
     </u1>
 
