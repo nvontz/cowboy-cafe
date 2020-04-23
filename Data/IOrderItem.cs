@@ -11,6 +11,10 @@ namespace CowboyCafe.Data
     public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
+        /// The calories of this order item
+        /// </summary>
+        uint Calories { get; }
+        /// <summary>
         /// The price of this order items
         /// </summary>
        double Price { get; }
