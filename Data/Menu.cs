@@ -7,6 +7,8 @@ namespace CowboyCafe.Data
 {
     public static class Menu
     {
+
+        public static IEnumerable<IOrderItem> EntreeList { get { return Entrees(); } }
         /// <summary>
         /// Gets the Entrees for the Menu
         /// </summary>
@@ -23,8 +25,11 @@ namespace CowboyCafe.Data
             entrees.Add(new TrailBurger());
             entrees.Add(new TexasTripleBurger());
 
-            return entrees.ToArray();
+            return entrees;
         }
+
+
+        public static IEnumerable<IOrderItem> SideList { get { return Sides(); } }
         /// <summary>
         /// Gets the Sides for the Menu
         /// </summary>
@@ -70,8 +75,9 @@ namespace CowboyCafe.Data
                 sides.Add(side);
             }
 
-            return sides.ToArray();
+            return sides;
         }
+        public static IEnumerable<IOrderItem> DrinkList { get { return Drinks(); } }
         /// <summary>
         /// Gets the Drinks for the Menu
         /// </summary>
@@ -115,8 +121,9 @@ namespace CowboyCafe.Data
                 drinks.Add(drink);
             }
 
-            return drinks.ToArray();
+            return drinks;
         }
+        public static IEnumerable<IOrderItem> CompleteList { get { return CompleteMenu(); } }
         /// <summary>
         /// Gets the Complete Menu for the Restaurant 
         /// </summary>
@@ -203,7 +210,7 @@ namespace CowboyCafe.Data
                 menu.Add(drink);
             }
 
-            return menu.ToArray();
+            return menu;
         }
         /// <summary>
         /// A Property that gets All items in the Menu
